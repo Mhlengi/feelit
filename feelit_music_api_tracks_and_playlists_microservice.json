@@ -1,0 +1,176 @@
+{
+  "info": {
+    "name": "Feelit Music API – Tracks & Playlists Microservice",
+    "_postman_id": "12345-abcde-music-crud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/users", "host": ["{{base_url}}"], "path": ["users"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"james.brown@example.com\",\n  \"username\": \"jbrown\",\n  \"password\": \"Passw0rd!\",\n  \"firstName\": \"James\",\n  \"lastName\": \"Brown\",\n  \"role\": \"ARTIST\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": { "method": "GET", "url": "{{base_url}}/users" }
+        },
+        {
+          "name": "Get User by ID",
+          "request": { "method": "GET", "url": "{{base_url}}/users/1" }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/users/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"James\",\n  \"lastName\": \"Brown\",\n  \"email\": \"j.brown@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": { "method": "DELETE", "url": "{{base_url}}/users/1" }
+        }
+      ]
+    },
+
+    {
+      "name": "Albums",
+      "item": [
+        {
+          "name": "Create Album",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/albums",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Live at the Apollo\",\n  \"releaseDate\": \"1963-05-01\",\n  \"artistId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Albums",
+          "request": { "method": "GET", "url": "{{base_url}}/albums" }
+        },
+        {
+          "name": "Get Album by ID",
+          "request": { "method": "GET", "url": "{{base_url}}/albums/1" }
+        },
+        {
+          "name": "Update Album",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/albums/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Live at the Apollo (Remastered)\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Album",
+          "request": { "method": "DELETE", "url": "{{base_url}}/albums/1" }
+        }
+      ]
+    },
+
+    {
+      "name": "Tracks",
+      "item": [
+        {
+          "name": "Create Track",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/tracks",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"I Got You (I Feel Good)\",\n  \"artistId\": 1,\n  \"duration\": 170,\n  \"genre\": \"Soul\",\n  \"releaseDate\": \"1965-08-01\",\n  \"artwork\": \"https://example.com/artwork/i-got-you.jpg\",\n  \"audio\": \"https://example.com/audio/i-got-you.mp3\",\n  \"albumId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Tracks",
+          "request": { "method": "GET", "url": "{{base_url}}/tracks" }
+        },
+        {
+          "name": "Get Track by ID",
+          "request": { "method": "GET", "url": "{{base_url}}/tracks/1" }
+        },
+        {
+          "name": "Update Track",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/tracks/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"duration\": 175\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Track",
+          "request": { "method": "DELETE", "url": "{{base_url}}/tracks/1" }
+        }
+      ]
+    },
+
+    {
+      "name": "Playlists",
+      "item": [
+        {
+          "name": "Create Playlist",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/playlists",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Soul Classics\",\n  \"playtime\": 0,\n  \"creatorId\": 1,\n  \"trackIds\": [1]\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Playlists",
+          "request": { "method": "GET", "url": "{{base_url}}/playlists" }
+        },
+        {
+          "name": "Get Playlist by ID",
+          "request": { "method": "GET", "url": "{{base_url}}/playlists/1" }
+        },
+        {
+          "name": "Update Playlist",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/playlists/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Greatest Soul Hits\",\n  \"trackIds\": [1]\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Playlist",
+          "request": { "method": "DELETE", "url": "{{base_url}}/playlists/1" }
+        }
+      ]
+    }
+  ]
+}
